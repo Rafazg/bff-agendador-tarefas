@@ -30,6 +30,8 @@
 		<java.version>17</java.version>
 		<spring-cloud.version>2025.1.1</spring-cloud.version>
 	</properties>
+
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -39,6 +41,13 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>3.0.3</version>
+            <scope>compile</scope>
+        </dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
