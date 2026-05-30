@@ -1,6 +1,5 @@
 package com.zgdev.bff_agendador_tarefas.business;
 
-import com.zgdev.bff_agendador_tarefas.business.dto.TarefasDTO;
 import com.zgdev.bff_agendador_tarefas.business.dto.in.TarefasDTORequest;
 import com.zgdev.bff_agendador_tarefas.business.dto.out.TarefasDTOResponse;
 import com.zgdev.bff_agendador_tarefas.business.enums.StatusNotificacaoEnum;
@@ -17,23 +16,30 @@ public class TarefasService {
 
     private final TarefasClient tarefasClient;
 
-    public TarefasDTOResponse gravarTarefas(String token, TarefasDTORequest dto) {
+    public TarefasDTOResponse gravarTarefa(String token, TarefasDTORequest dto) {
         return tarefasClient.gravarTarefas(dto, token);
     }
 
-    public List<TarefasDTOResponse> buscaTarefasAgendadasPorPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal, String token) {
+    public List<TarefasDTOResponse> buscaTarefasAgendadasPorPeriodo(LocalDateTime dataInicial,
+                                                                    LocalDateTime dataFinal,
+                                                                    String token) {
+
         return tarefasClient.buscaListaDeTarefasPorPeriodo(dataInicial, dataFinal, token);
+
+
     }
 
-    public List<TarefasDTOResponse> buscarTarefasPorEmail(String token) {
+    public List<TarefasDTOResponse> buscaTarefasPorEmail(String token) {
+
         return tarefasClient.buscaTarefasPorEmail(token);
+
     }
 
-    public void deletarTarefaPorID(String id, String token) {
+    public void deletaTarefaPorId(String id, String token) {
         tarefasClient.deletarTarefaPorId(id, token);
     }
 
-    public TarefasDTOResponse alterarStatus(StatusNotificacaoEnum status, String id, String token) {
+    public TarefasDTOResponse alteraStatus(StatusNotificacaoEnum status, String id, String token) {
         return tarefasClient.alterarStatusNotificacao(status, id, token);
     }
 

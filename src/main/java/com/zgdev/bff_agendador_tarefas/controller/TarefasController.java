@@ -43,7 +43,7 @@ public class TarefasController {
     public ResponseEntity<TarefasDTOResponse> gravarTarefas(@RequestBody TarefasDTORequest dto,
                                                             @RequestHeader(name = "Authorization", required = false) String token) {
 
-        return ResponseEntity.ok(tarefasService.gravarTarefas(token, dto));
+        return ResponseEntity.ok(tarefasService.gravarTarefa(token, dto));
     }
 
     @GetMapping("/eventos")
@@ -91,7 +91,7 @@ public class TarefasController {
     public ResponseEntity<List<TarefasDTOResponse>> buscaTarefasPorEmail(
             @RequestHeader(name = "Authorization", required = false) String token) {
 
-        return ResponseEntity.ok(tarefasService.buscarTarefasPorEmail(token));
+        return ResponseEntity.ok(tarefasService.buscaTarefasPorEmail(token));
     }
 
     @DeleteMapping("/{id}")
@@ -113,7 +113,7 @@ public class TarefasController {
     public ResponseEntity<Void> deletarTarefaPorId(@PathVariable String id,
                                                    @RequestHeader(name = "Authorization", required = false) String token) {
 
-        tarefasService.deletarTarefaPorID(id, token);
+        tarefasService.deletaTarefaPorId(id, token);
 
         return ResponseEntity.ok().build();
     }
@@ -142,7 +142,7 @@ public class TarefasController {
             @RequestHeader(name = "Authorization", required = false) String token) {
 
         return ResponseEntity.ok(
-                tarefasService.alterarStatus(status, id, token)
+                tarefasService.alteraStatus(status, id, token)
         );
     }
 

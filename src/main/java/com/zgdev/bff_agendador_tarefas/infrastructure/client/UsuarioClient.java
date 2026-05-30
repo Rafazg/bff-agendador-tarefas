@@ -1,16 +1,13 @@
 package com.zgdev.bff_agendador_tarefas.infrastructure.client;
 
-import com.zgdev.bff_agendador_tarefas.business.dto.EnderecoDTO;
-import com.zgdev.bff_agendador_tarefas.business.dto.TelefoneDTO;
-import com.zgdev.bff_agendador_tarefas.business.dto.UsuarioDTO;
 import com.zgdev.bff_agendador_tarefas.business.dto.in.EnderecoDTORequest;
+import com.zgdev.bff_agendador_tarefas.business.dto.in.LoginRequestDTO;
 import com.zgdev.bff_agendador_tarefas.business.dto.in.TelefoneDTORequest;
 import com.zgdev.bff_agendador_tarefas.business.dto.in.UsuarioDTORequest;
 import com.zgdev.bff_agendador_tarefas.business.dto.out.EnderecoDTOResponse;
 import com.zgdev.bff_agendador_tarefas.business.dto.out.TelefoneDTOResponse;
 import com.zgdev.bff_agendador_tarefas.business.dto.out.UsuarioDTOResponse;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name = "usuario", url = "${usuario.url}")
@@ -26,7 +23,7 @@ public interface UsuarioClient {
 
 
     @PostMapping("/login")
-    String login(@RequestBody UsuarioDTORequest usuarioDTO);
+    String login(@RequestBody LoginRequestDTO usuarioDTO);
 
 
     @DeleteMapping("/{email}")
